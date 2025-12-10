@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "8805bKw478Umk4E1C4x8mNK+APk0spnC6KAH1rrHeEM=",
+  "Source": "AWSWebApplication",
+  "BasePath": "_content/AWSWebApplication",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
