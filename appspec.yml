@@ -1,0 +1,10 @@
+version: 0.0
+os: windows
+files:
+  - source: /
+    destination: C:\WebApi
+
+hooks:
+  AfterInstall:
+    - location: scripts\post_deploy.ps1
+      timeout: 300
