@@ -8,7 +8,7 @@ namespace AWSWebApplication.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","Pramod" ,
+            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching","PramodKumar" ,
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
