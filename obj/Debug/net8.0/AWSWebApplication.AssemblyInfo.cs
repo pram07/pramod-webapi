@@ -11,10 +11,11 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("9470c9e0-32b8-45db-9c54-7494e514d2ea")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("AWSWebApplication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+11de56ac3a4148ff619169044de98ebab1d6c0ba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2258d366c20989427575e4aee29d8b066c1d96cb")]
 [assembly: System.Reflection.AssemblyProductAttribute("AWSWebApplication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AWSWebApplication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

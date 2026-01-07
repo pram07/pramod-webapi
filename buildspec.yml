@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-2 |
+        docker login --username AWS --password-stdin 013123810079.dkr.ecr.us-east-2.amazonaws.com
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Publishing .NET application...
+      - dotnet publish -c Release -o publish
+      - echo Building Docker image...
+      - docker build -t webapi-windows .
+      - docker tag webapi-windows:latest 013123810079.dkr.ecr.us-east-2.amazonaws.com/webapi-windows:latest
+
+  post_build:
+    commands:
+      - echo Pushing Docker image to ECR...
+      - docker push 013123810079.dkr.ecr.us-east-2.amazonaws.com/webapi-windows:latest
+      - echo Build completed on `date`

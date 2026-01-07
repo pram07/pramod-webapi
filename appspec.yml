@@ -1,10 +1,14 @@
 version: 0.0
-os: windows
+os: linux
+
 files:
   - source: /
-    destination: C:\WebApi
+    destination: /home/ec2-user/app
 
 hooks:
+  BeforeInstall:
+    - location: scripts/stop.sh
   AfterInstall:
-    - location: scripts\post_deploy.ps1
-      timeout: 300
+    - location: scripts/install.sh
+  ApplicationStart:
+    - location: scripts/start.sh
