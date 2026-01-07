@@ -3,12 +3,23 @@ os: linux
 
 files:
   - source: /
-    destination: /home/ec2-user/app
+    destination: /home/ubuntu/app
+
+permissions:
+  - object: /home/ubuntu/app
+    owner: ubuntu
+    group: ubuntu
 
 hooks:
   BeforeInstall:
     - location: scripts/stop.sh
+      timeout: 300
+      runas: ubuntu
   AfterInstall:
     - location: scripts/install.sh
+      timeout: 300
+      runas: ubuntu
   ApplicationStart:
     - location: scripts/start.sh
+      timeout: 300
+      runas: ubuntu
