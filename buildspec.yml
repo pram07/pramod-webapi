@@ -4,10 +4,15 @@ phases:
   install:
     runtime-versions:
       nodejs: 18
+
   build:
     commands:
+      - echo "Listing files"
+      - ls -la
+      - cd backend        # 👈 CHANGE THIS to the folder with package.json
       - echo "Installing dependencies"
       - npm install
+
 artifacts:
   files:
     - '**/*'
