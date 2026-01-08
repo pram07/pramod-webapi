@@ -3,15 +3,18 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      dotnet: 8.0   # change to 6.0 or 7.0 if needed
 
   build:
     commands:
       - echo "Listing files"
       - ls -la
-      - cd backend        # 👈 CHANGE THIS to the folder with package.json
-      - echo "Installing dependencies"
-      - npm install
+      - echo "Restoring NuGet packages"
+      - dotnet restore
+      - echo "Building Web API"
+      - dotnet build --configuration Release
+      - echo "Publishing Web API"
+      - dotnet publish -c Release -o output
 
 artifacts:
   files:
