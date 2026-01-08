@@ -2,20 +2,31 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      dotnet: 8.0   # change to 6.0 or 7.0 if needed
+    commands:
+      # CodeBuild minimal images may not set HOME, .NET 8 requires it
+      - echo "Setting HOME for .NET CLI"
+      - export HOME=/root
+      - export DOTNET_CLI_HOME=/root
+      - dotnet --info
 
   build:
     commands:
       - echo "Listing files"
       - ls -la
+
+      - echo "Clearing NuGet cache"
+      - dotnet nuget locals all --clear
+
       - echo "Restoring NuGet packages"
-      - dotnet restore
+      - dotnet restore AWSWebApplication.sln
+
       - echo "Building Web API"
-      - dotnet build --configuration Release
+      - dotnet build AWSWebApplication.sln --configuration Release --no-restore
+
       - echo "Publishing Web API"
-      - dotnet publish -c Release -o output
+      - dotnet publish AWSWebApplication.csproj -c Release -o output --no-build
 
 artifacts:
   files:
-    - '**/*'
+    - output/**/*
+
