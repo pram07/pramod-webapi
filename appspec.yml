@@ -1,25 +1,40 @@
 version: 0.0
 os: linux
 
+# Copy all artifact files to /home/ubuntu/app
 files:
   - source: /
     destination: /home/ubuntu/app
 
 permissions:
+  # Ensure ubuntu user owns everything in /home/ubuntu/app
   - object: /home/ubuntu/app
     owner: ubuntu
     group: ubuntu
+    mode: 755
+    recursive: true
 
 hooks:
   BeforeInstall:
+    # Stop the service if it’s running
     - location: scripts/stop.sh
       timeout: 300
       runas: ubuntu
+
   AfterInstall:
+    # Install dependencies or prepare environment
     - location: scripts/install.sh
       timeout: 300
       runas: ubuntu
+
   ApplicationStart:
+    # Start or restart your API as a systemd service
     - location: scripts/start.sh
       timeout: 300
+      runas: ubuntu
+
+  ValidateService:
+    # Optional: health check after deployment
+    - location: scripts/healthcheck.sh
+      timeout: 60
       runas: ubuntu

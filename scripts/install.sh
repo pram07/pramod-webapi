@@ -1,3 +1,6 @@
 #!/bin/bash
-cd /home/ec2-user/app
-npm install --production   # Node.js example
+# Example: install dependencies
+cd /home/ubuntu/app
+# e.g., Node.js dependencies
+npm install
+exit 0

@@ -1,3 +1,6 @@
 #!/bin/bash
-cd /home/ec2-user/app
-nohup npm start > app.log 2>&1 &
+# Start or restart the API service
+sudo systemctl daemon-reload
+sudo systemctl enable my-api.service
+sudo systemctl restart my-api.service
+exit 0
