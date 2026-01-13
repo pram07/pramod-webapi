@@ -1,1 +1,1 @@
-Write-Output "Deployment completed successfully"
+Write-Output "Deployment completed"
