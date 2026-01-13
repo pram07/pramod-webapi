@@ -3,7 +3,7 @@ os: windows
 
 files:
   - source: /
-    destination: C:\WebAPI
+    destination: C:\WebAPIAPP
 
 hooks:
   AfterInstall:
